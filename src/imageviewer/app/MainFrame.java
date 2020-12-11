@@ -16,13 +16,13 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class MainFrame {
-    public static void main(String[] args) {
+    /**public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Map<String,Command> commands = initCommands(new ArrayList(), new MockImageDisplay(), new MockImageLoader());
         while (true) {
             commands.getOrDefault(scanner.next(), NullCommand.Instance).execute();
         }
-    }
+    }*/
     
         private static Map<String,Command> initCommands(List<Image> images, ImageDisplay imageDisplay, ImageLoader imageLoader){
         HashMap<String,Command> commands = new HashMap<>();
