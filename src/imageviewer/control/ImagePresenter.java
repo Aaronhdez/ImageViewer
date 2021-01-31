@@ -32,12 +32,12 @@ public class ImagePresenter {
         return new Shift() {
             @Override
             public Image left() {
-                return images.get(current()+1 % images.size());
+                return images.get((current()+1) % images.size());
             }
 
             @Override
             public Image right() {
-                return images.get((current()-1+images.size()) % images.size());
+                return images.get(((current()-1)+images.size()) % images.size());
             }
         };
     }

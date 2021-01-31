@@ -16,5 +16,10 @@ public class MockImageDisplay implements ImageDisplay {
     public Image image() {
         return image;
     }
+
+    @Override
+    public void on(Shift shift) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
