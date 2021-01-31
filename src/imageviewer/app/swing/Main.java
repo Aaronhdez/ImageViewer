@@ -6,6 +6,7 @@
 package imageviewer.app.swing;
 
 import imageviewer.control.Command;
+import imageviewer.control.ImagePresenter;
 import imageviewer.control.NextCommand;
 import imageviewer.control.PrevCommand;
 import imageviewer.model.Image;
@@ -13,7 +14,6 @@ import imageviewer.view.ImageDisplay;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.FlowLayout;
-import java.awt.PopupMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -21,8 +21,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
@@ -36,6 +34,7 @@ public class Main extends JFrame {
     private Map<String,Command> commands;
     private List<Image> images;
     private ImageDisplay imageDisplay;
+    private ImagePresenter imagePresenter;
     
     public static void main(String[] args) {
         new Main().execute();
@@ -53,6 +52,7 @@ public class Main extends JFrame {
     private void execute(){
         this.images = new FileImageLoader(new File("./fotos")).load();
         this.imageDisplay.show(images.get(0));
+        this.imagePresenter = new ImagePresenter(images, imageDisplay);
         this.createCommands();
         this.setVisible(true);
     }
